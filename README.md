@@ -4,4 +4,6 @@
 ### Installation du CLI
 npm install -g @angular/cli@latest
 ### YARN plutôt que NPM :
- ng config -g cli.packageManager yarn
+ng config -g cli.packageManager yarn
+ ### YARN update :
+ brew upgrade yarn
