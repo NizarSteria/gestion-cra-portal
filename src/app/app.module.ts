@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,6 @@ import { BrowserAnimationModule, BrowserAnimationsModule } from '@angular/platfo
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationModule,
     BrowserAnimationsModule
   ],
   providers: [],
