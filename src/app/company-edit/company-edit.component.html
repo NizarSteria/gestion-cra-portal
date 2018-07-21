@@ -1,0 +1,59 @@
+<mat-card>
+  <form #companyForm="ngForm" (ngSubmit)="save(companyForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{company.name ? 'Edit' : 'Add'}} Company</h2></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <input type="hidden" name="href" [(ngModel)]="company.href">
+      <mat-form-field>
+        <input matInput placeholder="Company ID" [(ngModel)]="company.companyId"
+               required name="companyId" #companyId>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Company Name" [(ngModel)]="company.name"
+               required name="name" #name>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Company phone" [(ngModel)]="company.phone"
+               required name="phone" #phone>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Company emailBill" [(ngModel)]="company.emailBill"
+               required name="emailBill" #emailBill>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Company emailContrat" [(ngModel)]="company.emailContrat"
+               required name="emailContrat" #emailContrat>
+      </mat-form-field>
+    </mat-card-content>
+
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!companyForm.form.valid">Save</button>
+      <button mat-raised-button color="secondary" (click)="remove(company.href)"
+              *ngIf="company.href" type="button">Delete</button>
+      <a mat-button routerLink="/company-list">Cancel</a>
+    </mat-card-actions>
+  </form>
+
+  <mat-card-footer>
+      <div class="giphy">
+        <img src="{{company.giphyUrl}}" alt="{{company.name}}">
+      </div>
+    </mat-card-footer>
+</mat-card>
+
