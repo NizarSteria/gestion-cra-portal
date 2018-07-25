@@ -28,8 +28,9 @@ export class CompanyService {
     return result;
   }
 
-  remove(href: string) {
-    return this.http.delete(href);
+  remove(id: string) {
+    return this.http.delete(this.COMPANY_API + '/client/' + id);
+    
   }
 
 }

@@ -1,0 +1,59 @@
+<mat-card>
+  <form #craForm="ngForm" (ngSubmit)="save(craForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{cra.id ? 'Edit' : 'Add'}} Cra</h2></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <input type="hidden" name="href" [(ngModel)]="cra.href">
+      <mat-form-field>
+        <input matInput placeholder="Cra ID" [(ngModel)]="cra.id"
+               required name="id" #id>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Year" [(ngModel)]="cra.year"
+               required name="year" #year>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Month" [(ngModel)]="cra.month"
+               required name="month" #month>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Days" [(ngModel)]="cra.days"
+               required name="days" #days>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Status" [(ngModel)]="cra.status"
+               required name="status" #status>
+      </mat-form-field>
+    </mat-card-content>
+
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!craForm.form.valid">Save</button>
+      <button mat-raised-button color="secondary" (click)="remove(cra.id)"
+              type="button">Delete</button>
+      <a mat-button routerLink="/cra-list">Cancel</a>
+    </mat-card-actions>
+  </form>
+
+  <mat-card-footer>
+      <div class="giphy">
+        <img src="{{cra.giphyUrl}}" alt="{{cra.name}}">
+      </div>
+    </mat-card-footer>
+</mat-card>
+

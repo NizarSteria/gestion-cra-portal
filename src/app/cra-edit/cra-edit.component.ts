@@ -1,23 +1,24 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CompanyService } from '../shared/company/company.service';
+import { CraService } from '../shared/cra/cra.service';
 import { GiphyService } from '../shared/giphy/giphy.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-company-edit',
-  templateUrl: './company-edit.component.html',
-  styleUrls: ['./company-edit.component.css']
+  selector: 'app-cra-edit',
+  templateUrl: './cra-edit.component.html',
+  styleUrls: ['./cra-edit.component.css']
 })
-export class CompanyEditComponent implements OnInit, OnDestroy {
-company : any = {};
+export class CraEditComponent implements OnInit {
+
+cra : any = {};
 
   sub: Subscription;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private companyService: CompanyService,
+              private craService: CraService,
               private giphyService: GiphyService) { }
 
   ngOnInit() {
@@ -25,10 +26,10 @@ company : any = {};
  this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
-        this.companyService.get(id).subscribe((company: any) => {
-          if (company) {
-            this.company = company;
-            this.giphyService.get(company.name).subscribe(url => company.giphyUrl = url);
+        this.craService.get(id).subscribe((cra: any) => {
+          if (cra) {
+            this.cra = cra;
+            this.giphyService.get(cra.id).subscribe(url => cra.giphyUrl = url);
           } else {
             console.log(`Company with id '${id}' not found, returning to list`);
             this.gotoList();
@@ -44,19 +45,19 @@ company : any = {};
   }
 
   gotoList() {
-    this.router.navigate(['/company-list']);
+    this.router.navigate(['/cra-list']);
   }
 
   save(form: NgForm) {
-    this.companyService.save(form).subscribe(result => {
+    this.craService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
 
   remove(id) {
-    this.companyService.remove(id).subscribe(result => {
+    this.craService.remove(id).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
 
-}
+  }

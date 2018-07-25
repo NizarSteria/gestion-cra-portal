@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let contract of contracts">
+        <img mat-list-avatar src="{{contract.giphyUrl}}" alt="{{contract.id}}">
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/contract-edit', contract.id]">{{contract.id}}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/contract-add']">Add</button>
+</mat-card>

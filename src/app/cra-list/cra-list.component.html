@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let cra of cras">
+        <img mat-list-avatar src="{{cra.giphyUrl}}" alt="{{cra.id}}">
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/cra-edit', cra.id]">{{cra.id}}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/cra-add']">Add</button>
+</mat-card> 

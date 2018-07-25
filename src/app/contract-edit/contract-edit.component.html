@@ -1,0 +1,73 @@
+<mat-card>
+  <form #contractForm="ngForm" (ngSubmit)="save(contractForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{contract.id ? 'Edit' : 'Add'}} Company</h2></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <input type="hidden" name="href" [(ngModel)]="contract.href">
+      <mat-form-field>
+        <input matInput placeholder="contract ID" [(ngModel)]="contract.contractId"
+               required name="contractId" #contractId>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="TJM" [(ngModel)]="contract.tjm"
+             required name="tjm" #tjm>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="StartDate" [(ngModel)]="contract.startDate"
+                name="startDate" #startDate>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="EndDate" [(ngModel)]="contract.endDate"
+                name="endDate" #endDate>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="PaiementPeriod" [(ngModel)]="contract.paiementPeriod"
+               required name="paiementPeriod" #paiementPeriod>
+      </mat-form-field>
+    </mat-card-content>
+
+     <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Comment" [(ngModel)]="contract.comment"
+               required name="comment" #comment>
+      </mat-form-field>
+    </mat-card-content>
+
+        <mat-card-content>
+     <mat-form-field>
+      <input matInput placeholder="Active" [(ngModel)]="contract.active"
+               required name="active" #active>
+      </mat-form-field>
+    </mat-card-content>
+
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!contractForm.form.valid">Save</button>
+      <button mat-raised-button color="secondary" (click)="remove(contract.id)"
+              type="button">Delete</button>
+      <a mat-button routerLink="/contract-list">Cancel</a>
+    </mat-card-actions>
+  </form>
+
+  <mat-card-footer>
+      <div class="giphy">
+        <img src="{{contract.giphyUrl}}" alt="{{contract.name}}">
+      </div>
+    </mat-card-footer>
+</mat-card>
+

@@ -44,8 +44,8 @@
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit"
               [disabled]="!companyForm.form.valid">Save</button>
-      <button mat-raised-button color="secondary" (click)="remove(company.href)"
-              *ngIf="company.href" type="button">Delete</button>
+      <button mat-raised-button color="secondary" (click)="remove(company.id)"
+              type="button">Delete</button>
       <a mat-button routerLink="/company-list">Cancel</a>
     </mat-card-actions>
   </form>
