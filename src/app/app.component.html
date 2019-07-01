@@ -1,3 +1,27 @@
-<mat-checkbox> </mat-checkbox>
+ <mat-toolbar class="extend-toolbar">
+  <span>
+    <a [routerLink]="['/home']">home
+    </a>
+  </span>
+
+  <span class="flex"></span>
+
+  <span>
+    <a [routerLink]="['/company-list']">Companies</a>
+  </span>
+  <span>
+     <a [routerLink]="['/cra-list']">Cra list</a>
+  </span>
+  <span>
+     <a [routerLink]="['/bill-list']">Bill list</a>
+  </span>
+  <span>
+     <a [routerLink]="['/contract-list']">Contracts</a>
+  </span>
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>
+
 
 

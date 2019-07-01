@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let bill of bills">
+        <img mat-list-avatar src="{{bill.giphyUrl}}" alt="{{bill.id}}">
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/bill-edit', bill.id]">{{bill.id}}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/bill-add']">Add</button>
+</mat-card> 
